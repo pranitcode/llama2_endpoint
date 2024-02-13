@@ -1,9 +1,16 @@
 from flask import Flask, request, jsonify
 import replicate
-from flask_cors import CORS
+# from flask_cors import CORS
 app = Flask(__name__)
 
-CORS(app)
+def add_cors_headers(response):
+    response.headers['Access-Control-Allow-Origin'] = '*'  # Allow requests from any origin
+    response.headers['Access-Control-Allow-Headers'] = 'Content-Type'  # Allow Content-Type header
+    response.headers['Access-Control-Allow-Methods'] = 'POST'  # Allow POST requests
+    return response
+
+
+# CORS(app)
 @app.route('/summarize', methods=['POST'])
 def summarize():
     data = request.get_json()
@@ -28,8 +35,8 @@ def summarize():
         response_text += str(event)
 
     # Return the response text as JSON
-    return jsonify({'summary': response_text})
-
+    response = jsonify({'summary': response_text})
+    return add_cors_headers(response)
 # if __name__ == '__main__':
 #     app.run(debug=True)
    
