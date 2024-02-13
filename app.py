@@ -1,9 +1,9 @@
 from flask import Flask, request, jsonify
 import replicate
-# from flask_cors import CORS
+from flask_cors import CORS
 app = Flask(__name__)
 
-# CORS(app, origins=['http://localhost:3000'])
+CORS(app)
 @app.route('/summarize', methods=['POST'])
 def summarize():
     data = request.get_json()
