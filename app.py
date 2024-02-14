@@ -22,7 +22,7 @@ def summarize():
                 "debug": False,
                 "top_k": -1,
                 "top_p": 1,
-                "prompt": prompt_text + "in less words Summarize the provided text in 4 small bullet points Condense text into 4 concise bullet points",
+                "prompt": prompt_text,
                 "temperature": 0.75,
                 "system_prompt": "You are a helpful,Summarize the provided text in 4 bullet points",
                 "max_new_tokens": 800,
