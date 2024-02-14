@@ -11,9 +11,7 @@ def summarize():
         data = request.get_json()
         if 'text' not in data:
             return jsonify({'error': 'No text provided in request'}), 400
-
         prompt_text = data['text']
-
         # Call replicate.stream with the provided prompt
         response_text = ""
         for event in replicate.stream(
@@ -22,10 +20,10 @@ def summarize():
                 "debug": False,
                 "top_k": -1,
                 "top_p": 1,
-                "prompt": prompt_text,
+                "prompt": "Summarize the main points presented in the following article in a point-by-point format:" + prompt_text,
                 "temperature": 0.75,
-                "system_prompt": "You are a helpful, respectful and honest assistant. Always answer as helpfully as possible, while being safe. Your answers should not include any harmful, unethical, racist, sexist, toxic, dangerous, or illegal content. Please ensure that your responses are socially unbiased and positive in nature.\n\nIf a question does not make any sense, or is not factually coherent, explain why instead of answering something not correct. If you don't know the answer to a question, please don't share false information.",
-                "max_new_tokens": 800,
+                "system_prompt": "You are an incredibly helpful, respectful, and trustworthy assistant. Your expertise lies in your ability to skillfully summarize information with precision and clarity. Your proficiency as a summarizer is unmatched, making you an invaluable resource for anyone seeking concise and insightful summaries.",
+                "max_new_tokens": 200,
                 "min_new_tokens": -1,
                 "repetition_penalty": 1
             },
