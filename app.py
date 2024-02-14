@@ -13,9 +13,11 @@ def summarize():
             return jsonify({'error': 'No text provided in request'}), 400
     
         prompt_text = data['text']
-        prompt = "Summarize the following points in a point-by-point format: " + prompt_text + "summarize in 200 to 300 words"
+        prompt = "Summarize the following points in a point-by-point format: " + prompt_text 
         prompt += " Do not use any information not provided for creating summary points."
-        
+        prompt += "summarize in less words than input words"
+       
+ 
         response_text = ""
         for event in replicate.stream(
             "meta/llama-2-7b-chat",
