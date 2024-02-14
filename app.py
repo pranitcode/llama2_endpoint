@@ -37,5 +37,5 @@ def summarize():
     except Exception as e:
         return jsonify({'error': 'An error occurred while summarizing text'}), 500
 
-if __name__ == '__main__':
-    app.run(debug=True)
+# if __name__ == '__main__':
+#     app.run(debug=True)
