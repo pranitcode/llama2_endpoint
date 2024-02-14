@@ -15,7 +15,7 @@ def summarize():
         prompt_text = data['text']
         prompt = "Summarize the following points in a 4 to 5 point-by-point format: " + prompt_text 
         prompt += " Do not use any information not provided for creating summary points."
-        prompt += "summarize minimum 300 words in 4 point-by-point format: you can add small one line conclusion"
+        prompt += "summarize minimum 200 words in 4 point-by-point format: you can add small one line conclusion"
        
         response_text = ""
         for event in replicate.stream(
