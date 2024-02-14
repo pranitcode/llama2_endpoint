@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 
 CORS(app)
-@app.route('/summarize', methods=['POST'])
+@app.route('/app/summarize', methods=['POST'])
 def summarize():
     data = request.get_json()
     prompt_text = data['text']
