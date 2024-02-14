@@ -28,7 +28,7 @@ def summarize():
                 "prompt": prompt,
                 "temperature": 0.75,
                 "system_prompt": "You are an incredibly helpful, respectful, and trustworthy assistant. Your expertise lies in your ability to skillfully summarize information with precision and clarity. Your proficiency as a summarizer is unmatched, making you an invaluable resource for anyone seeking concise and insightful summaries.",
-                "max_new_tokens": 300,
+                "max_new_tokens": 500,
                 "min_new_tokens": -1,
                 "repetition_penalty": 1
             },
